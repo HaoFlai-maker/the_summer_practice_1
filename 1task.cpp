@@ -8,9 +8,9 @@ int main(){
 
     int l = 0;
     int sum = 0;
-    int mn = 10000;
-    
+
     for(int i = 0; i < n; i++) {
+        int mn = 10000;
         l++;
         int* mas = new int[l];
         for(int j = 0; j < l; j++) {
