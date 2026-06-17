@@ -2,13 +2,17 @@
 #include <algorithm>
 #include <vector>
 
+int ans = 0;
+
 void dfs(int j, const std::vector<std::vector<int>>& adj, std::vector<bool>& visited) {
     visited[j] = true;
     std::cout << j << " ";
-    
     for (int neighbor : adj[j]) {
         if (!visited[neighbor]) {
             dfs(neighbor, adj, visited);
+        }
+        else {
+            ans++;
         }
     }
 }
@@ -31,14 +35,10 @@ int main() {
 
     std::vector<bool> visited(n + 1, false);
 
-    int ans = 0;
     for(int i = 1; i <= n; ++i) {
         if (!visited[i]) {
             dfs(i, adj, visited);
         }
-        else {
-            ans++;
-        }
     }
-    std::cout << std::endl << ans << std::endl;
+    std::cout << std::endl << n - ans - 1 << std::endl;
 }
