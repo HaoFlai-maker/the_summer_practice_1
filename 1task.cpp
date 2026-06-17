@@ -1,10 +1,10 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
 
 int main(){
     int n = 0;
     std::cin >> n;
+    
     int** matrix = new int*[n];
     int** dp = new int*[n];
 
@@ -27,20 +27,27 @@ int main(){
     for(int i = n - 2; i >= 0; i--) {
         for(int j = 0; j <= i; j++) {
             dp[i][j] = matrix[i][j] + std::min(dp[i+1][j], dp[i+1][j+1]);
+            std::cout << dp[i][j] << " ";
         }
+        std::cout << std::endl;
     }
+    
     std::cout << dp[0][0] << std::endl;
-    for(int i = 0; i < n; i++) {
-        int mn = 10000;
-        int ind_i = 0;
-        int ind_j = 0;
-        for(int j = 0; j < i; j++) {
-            if (dp[i][j] < mn) {
-                ind_i = i;
-                ind_j = j;
-                mn = dp[i][j];
-            }
+
+    int current_j = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        if (dp[i+1][current_j] > dp[i+1][current_j+1]) {
+            current_j = current_j + 1;
         }
-        std::cout << matrix[ind_i][ind_j] << " ";
+        std::cout << matrix[i+1][current_j] << " ";
     }
+    std::cout << std::endl;
+
+    for(int i = 0; i < n; i++) {
+        delete[] matrix[i];
+        delete[] dp[i];
+    }
+    delete[] matrix;
+    delete[] dp;
 }
