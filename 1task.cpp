@@ -30,4 +30,17 @@ int main(){
         }
     }
     std::cout << dp[0][0] << std::endl;
+    for(int i = 0; i < n; i++) {
+        int mn = 10000;
+        int ind_i = 0;
+        int ind_j = 0;
+        for(int j = 0; j < i; j++) {
+            if (dp[i][j] < mn) {
+                ind_i = i;
+                ind_j = j;
+                mn = dp[i][j];
+            }
+        }
+        std::cout << matrix[ind_i][ind_j] << " ";
+    }
 }
