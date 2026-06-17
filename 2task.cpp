@@ -6,13 +6,9 @@ int ans = 0;
 
 void dfs(int j, const std::vector<std::vector<int>>& adj, std::vector<bool>& visited) {
     visited[j] = true;
-    std::cout << j << " ";
     for (int neighbor : adj[j]) {
         if (!visited[neighbor]) {
             dfs(neighbor, adj, visited);
-        }
-        else {
-            ans++;
         }
     }
 }
@@ -37,8 +33,9 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         if (!visited[i]) {
+            ans++;
             dfs(i, adj, visited);
         }
     }
-    std::cout << std::endl << n - ans - 1 << std::endl;
+    std::cout << ans - 1 << std::endl;
 }
