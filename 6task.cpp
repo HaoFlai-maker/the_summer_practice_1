@@ -8,13 +8,13 @@ int main() {
         int a = 0, b = 0, x = 0, y = 0;
         std::cin >> a >> b >> x >> y;
         int sum = 0;
-        if (b <= y) {
+        if (b <= x) {
             sum += b;
-            y -= b;
+            x -= b;
         }
         else {
-            sum += y;
-            y = 0;
+            sum += x;
+            x = 0;
         }
         if(a <= (x + y)) {
             sum += a;
