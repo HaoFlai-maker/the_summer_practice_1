@@ -7,6 +7,21 @@ int main() {
     while(n--) {
         int a = 0, b = 0, x = 0, y = 0;
         std::cin >> a >> b >> x >> y;
-        std::cout << (b-(y-b)) + (a-(b-y)) + (a-(x-a)) << std::endl;
+        int sum = 0;
+        if (b <= y) {
+            sum += b;
+            y -= b;
+        }
+        else {
+            sum += y;
+            y = 0;
+        }
+        if(a <= (x + y)) {
+            sum += a;
+        }
+        else {
+            sum += std::min(x,y);
+        }
+        std::cout << sum << std::endl;
     }
 }
