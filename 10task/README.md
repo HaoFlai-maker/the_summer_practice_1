@@ -1,0 +1,1 @@
+ссылка на wokwi: https://wokwi.com/projects/468261793570069505
