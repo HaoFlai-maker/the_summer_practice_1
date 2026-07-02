@@ -4,9 +4,7 @@ os.system("python -m pip install opencv-python numpy")
 import cv2
 import numpy as np
 
-image = cv2.imread("test_2 example task №11.jpg")
-
-cv2.imshow("original", image) 
+image = cv2.imread("image.jpg")
 
 cv2.waitKey(0)
 
